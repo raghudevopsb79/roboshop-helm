@@ -1,0 +1,6 @@
+name: frontend
+image: public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+replicas: 1
+labels:
+  appName: frontend
+containerPort: 80
