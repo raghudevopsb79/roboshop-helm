@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
     {{ toYaml .Values.labels | indent 4 }}
 spec:
@@ -14,18 +15,32 @@ spec:
       labels:
         {{ toYaml .Values.labels | indent 8 }}
     spec:
+      serviceAccountName: {{ .Values.name }}
+      volumes:
+      - name: vault-secrets
+        emptyDir: {}
       initContainers:
         - name: config-init-from-vault
           image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/config-init-from-vault:latest
           imagePullPolicy: Always
+          env:
+            - name: ENV
+              value: {{ .Values.env }}
+            - name: APP_NAME
+              value: {{ .Values.name }}
           envFrom:
           - secretRef:
               name: vault
+          volumeMounts:
+          - mountPath: /data
+            name: vault-secrets
       containers:
-      - name: {{ .Values.name }}
-        image: {{ .Values.image }}
-        imagePullPolicy: Always
-        ports:
-        - containerPort: {{ .Values.containerPort }}
-
+        - name: {{ .Values.name }}
+          image: {{ .Values.image }}
+          imagePullPolicy: Always
+          ports:
+          - containerPort: {{ .Values.containerPort }}
+          volumeMounts:
+          - mountPath: /data
+            name: vault-secrets
 
