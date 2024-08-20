@@ -32,7 +32,6 @@ spec:
         - name: {{ .Values.name }}
           image: {{ .Values.image }}
           imagePullPolicy: Always
-          command: ["tail", "-f", "/dev/null"]
           envFrom:
           - secretRef:
               name: {{ .Values.name }}
