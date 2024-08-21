@@ -1,0 +1,22 @@
+name: catalogue
+image: public.ecr.aws/w8x4g9h7/roboshop-v3/catalogue
+replicas: 1
+labels:
+  appName: catalogue
+containerPort: 8080
+namespace: app
+env: dev
+
+schema:
+  enabled: true
+  schemaFiles:
+    - app-user:
+        filename: db/app-user.sql
+    - schema:
+        filename: db/schema.sql
+    - master-data:
+        filename: db/master-data.sql
+
+
+
+

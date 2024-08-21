@@ -1,8 +1,9 @@
 {{ if .Values.schema.enabled }}
+{{- range $k, $v := .Values.schemaFiles }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Values.name }}-schema-load
+  name: {{ .Values.name }}-{{ $k }}-schema-load
   namespace: {{ .Values.namespace }}
 spec:
   backoffLimit: 1
@@ -25,8 +26,13 @@ spec:
       containers:
         - name: schema-load
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env:
+            - name: SCHEMA_FILE
+              value: {{ $v.value }}
           envFrom:
           - secretRef:
               name: {{ .Values.name }}
+{{- end }}
 {{ end }}
+
 
