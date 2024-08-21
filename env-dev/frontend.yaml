@@ -4,5 +4,5 @@ replicas: 1
 labels:
   appName: frontend
 containerPort: 80
-namespace: default
+namespace: web
 env: dev
