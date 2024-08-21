@@ -4,12 +4,25 @@ kind: Job
 metadata:
   name: {{ .Values.name }}-schema-load
 spec:
+  backoffLimit: 1
   template:
     spec:
-      containers:
-      - name: schema-load
-        image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
       restartPolicy: Never
-  backoffLimit: 1
+      serviceAccountName: {{ .Values.name }}
+      initContainers:
+        - name: config-init-from-vault
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/config-init-from-vault:latest
+          imagePullPolicy: Always
+          env:
+            - name: ENV
+              value: {{ .Values.env }}
+            - name: APP_NAME
+              value: {{ .Values.name }}
+          envFrom:
+          - secretRef:
+              name: vault
+      containers:
+        - name: schema-load
+          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
 {{ end }}
 
