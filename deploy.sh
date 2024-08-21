@@ -25,6 +25,12 @@ fi
 ARGOCD_PASSWORD=$(kubectl get secrets argocd-initial-admin-secret -n argocd  -o=jsonpath='{.data.password}' | base64 --decode)
 argocd login  argocd-main-dev.rdevopsb79.online:443 --grpc-web --username admin --password ${ARGOCD_PASSWORD}
 
+argocd app list | grep argocd/$APP_NAME &>/dev/null
+if [ $? -eq 0 ]; then
+  argocd app sync ${APP_NAME}
+  exit
+fi
+
 kubectl create ns $NAMESPACE
 argocd app create ${APP_NAME} --project default --sync-policy auto --repo https://github.com/raghudevopsb79/roboshop-helm --path chart --dest-namespace ${NAMESPACE} --dest-server https://kubernetes.default.svc --values ../env-${ENV}/${APP_NAME}.yaml
 
