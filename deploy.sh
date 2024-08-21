@@ -19,7 +19,7 @@ if [ -z "$3" ]; then
   echo Usage: $0 APP_NAME ENV NAMESPACE
   exit 1
 else
-  ENV=$2
+  NAMESPACE=$3
 fi
 
 ARGOCD_PASSWORD=$(kubectl get secrets argocd-initial-admin-secret -n argocd  -o=jsonpath='{.data.password}' | base64 --decode)
