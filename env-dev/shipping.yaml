@@ -10,12 +10,9 @@ env: dev
 schema:
   enabled: true
   schemaFiles:
-    app-user:
-        filename: db/app-user.sql
-    schema:
-        filename: db/schema.sql
-    master-data:
-        filename: db/master-data.sql
+    app-user: db/app-user.sql
+    schema: db/schema.sql
+    master-data: db/master-data.sql
 
 
 

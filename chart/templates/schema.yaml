@@ -28,7 +28,7 @@ spec:
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env:
             - name: SCHEMA_FILE
-              value: {{ $v.value }}
+              value: {{ $v }}
           envFrom:
           - secretRef:
               name: {{ $.Values.name }}
