@@ -6,3 +6,6 @@ labels:
 containerPort: 8080
 namespace: app
 env: dev
+
+schema:
+  enabled: true
