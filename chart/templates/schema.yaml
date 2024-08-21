@@ -24,5 +24,8 @@ spec:
       containers:
         - name: schema-load
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          envFrom:
+          - secretRef:
+              name: {{ .Values.name }}
 {{ end }}
 
