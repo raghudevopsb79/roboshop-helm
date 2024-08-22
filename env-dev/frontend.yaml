@@ -6,3 +6,9 @@ labels:
 containerPort: 80
 namespace: web
 env: dev
+
+ingress:
+  enabled: true
+  dns_name: frontend-dev.rdevopsb79.online
+
+
