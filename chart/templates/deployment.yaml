@@ -38,7 +38,7 @@ spec:
           ports:
           - containerPort: {{ .Values.containerPort }}
           resources:
-            {{ include "toYaml" .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
 
 
 
