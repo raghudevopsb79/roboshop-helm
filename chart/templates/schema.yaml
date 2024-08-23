@@ -26,7 +26,8 @@ spec:
               name: vault
       containers:
         - name: {{ $.Values.name }}-schema
-          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/roboshop-schema-load:latest
+          imagePullPolicy: Always
           env:
             - name: SCHEMA_FILE
               value: {{ $.Values.schema.schemaFiles }}
