@@ -9,10 +9,7 @@ env: dev
 
 schema:
   enabled: true
-  schemaFiles:
-    app-user: db/app-user.sql
-    schema: db/schema.sql
-    master-data: db/master-data.sql
+  schemaFiles: "app-user schema master-data"
 
 
 

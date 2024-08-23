@@ -9,6 +9,4 @@ env: dev
 
 schema:
   enabled: true
-  schemaFiles:
-    master-data: db/master-data.js
-
+  schemaFiles: "master-data"

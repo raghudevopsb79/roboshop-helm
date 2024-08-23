@@ -25,16 +25,14 @@ spec:
           - secretRef:
               name: vault
       containers:
-        {{- range $k, $v := .Values.schema.schemaFiles }}
-        - name: {{ $k }}
+        - name: {{ $.Values.name }}-schema
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env:
             - name: SCHEMA_FILE
-              value: {{ $v }}
+              value: {{ $.Values.schema.schemaFiles }}
           envFrom:
           - secretRef:
               name: {{ $.Values.name }}
-        {{- end }}
 {{ end }}
 
 
