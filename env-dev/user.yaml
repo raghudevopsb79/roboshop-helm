@@ -7,3 +7,12 @@ containerPort: 8080
 namespace: app
 env: dev
 
+resources:
+  requests:
+    cpu: 50m
+    memory: 100Mi
+  limits:
+    cpu: 150m
+    memory: 250Mi
+
+

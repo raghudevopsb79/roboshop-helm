@@ -11,4 +11,12 @@ ingress:
   enabled: true
   dns_name: frontend-dev.rdevopsb79.online
 
+resources:
+  requests:
+    cpu: 50m
+    memory: 100Mi
+  limits:
+    cpu: 150m
+    memory: 250Mi
+
 

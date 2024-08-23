@@ -11,6 +11,14 @@ schema:
   enabled: true
   schemaFiles: "app-user schema master-data"
 
+resources:
+  requests:
+    cpu: 1000m
+    memory: 1500Mi
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+
 
 
 

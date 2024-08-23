@@ -10,3 +10,13 @@ env: dev
 schema:
   enabled: true
   schemaFiles: "master-data"
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 100Mi
+  limits:
+    cpu: 150m
+    memory: 250Mi
+
+
