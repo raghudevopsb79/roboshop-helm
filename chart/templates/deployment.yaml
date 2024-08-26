@@ -34,7 +34,7 @@ spec:
           imagePullPolicy: Always
           {{ if .Values.customCommand.enabled }}
           command: ["java"]
-          args: {{ .Values.customCommand.command }}
+          args: [{{ .Values.customCommand.command }}]
           {{ end }}
           envFrom:
           - secretRef:
