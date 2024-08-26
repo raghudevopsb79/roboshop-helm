@@ -33,7 +33,7 @@ spec:
           image: {{ .Values.image }}
           imagePullPolicy: Always
           {{ if .Values.customCommand.enabled }}
-          command:
+          command: {{ .Values.customCommand.command }
           {{ end }}
           envFrom:
           - secretRef:
