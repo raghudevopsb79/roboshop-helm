@@ -21,7 +21,7 @@ resources:
 
 customCommand:
   enabled: true
-  command: ["-Xms1400m", "-Xmx1400m", "-jar", "/app/shipping.jar"]
+  command: ["java", "-Xms1400m", "-Xmx1400m", "-jar", "/app/shipping.jar"]
 
 
 
