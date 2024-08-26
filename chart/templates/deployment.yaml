@@ -32,6 +32,9 @@ spec:
         - name: {{ .Values.name }}
           image: {{ .Values.image }}
           imagePullPolicy: Always
+          {{ if .Values.customCommand.enabled }}
+          command:
+          {{ end }}
           envFrom:
           - secretRef:
               name: {{ .Values.name }}

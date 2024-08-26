@@ -4,3 +4,6 @@ schema:
 ingress:
   enabled: false
 
+customCommand:
+  enabled: false
+

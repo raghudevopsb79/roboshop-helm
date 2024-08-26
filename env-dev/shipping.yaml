@@ -19,6 +19,9 @@ resources:
     cpu: 2000m
     memory: 3000Mi
 
+customCommand:
+  enabled: true
+  command: ["java", "-Xms1400m", "-Xmx1400m", "-jar", "/app/shipping.jar"]
 
 
 
