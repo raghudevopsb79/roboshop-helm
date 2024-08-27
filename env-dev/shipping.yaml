@@ -13,15 +13,15 @@ schema:
 
 resources:
   requests:
-    cpu: 1000m
-    memory: 1500Mi
+    cpu: 1800m
+    memory: 2500Mi
   limits:
     cpu: 2000m
-    memory: 3000Mi
+    memory: 3500Mi
 
 customCommand:
   enabled: true
-  command: ["java", "-Xms1400m", "-Xmx1400m", "-jar", "/app/shipping.jar"]
+  command: ["java", "-Xms1750m", "-Xmx1750m", "-jar", "/app/shipping.jar"]
 
 
 
