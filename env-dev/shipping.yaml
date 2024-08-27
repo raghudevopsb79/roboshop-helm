@@ -8,7 +8,7 @@ namespace: app
 env: dev
 
 schema:
-  enabled: false
+  enabled: true
   schemaFiles: "app-user schema master-data"
 
 resources:
