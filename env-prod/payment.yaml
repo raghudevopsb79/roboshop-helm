@@ -1,0 +1,19 @@
+name: payment
+image: public.ecr.aws/w8x4g9h7/roboshop-v3/payment
+replicas: 1
+labels:
+  appName: payment
+containerPort: 8080
+namespace: app
+env: prod
+
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 100Mi
+  limits:
+    cpu: 150m
+    memory: 250Mi
+
+

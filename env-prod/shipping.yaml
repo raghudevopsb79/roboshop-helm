@@ -1,0 +1,27 @@
+name: shipping
+image: public.ecr.aws/w8x4g9h7/roboshop-v3/shipping
+replicas: 1
+labels:
+  appName: shipping
+containerPort: 8080
+namespace: app
+env: prod
+
+schema:
+  enabled: true
+  schemaFiles: "app-user schema master-data"
+
+resources:
+  requests:
+    cpu: 1800m
+    memory: 2500Mi
+  limits:
+    cpu: 2000m
+    memory: 3500Mi
+
+customCommand:
+  enabled: true
+  command: ["java", "-Xms1750m", "-Xmx1750m", "-jar", "/app/shipping.jar"]
+
+
+
