@@ -1,5 +1,4 @@
 name: cart
-image: public.ecr.aws/w8x4g9h7/roboshop-v3/cart
 replicas: 1
 labels:
   appName: cart
