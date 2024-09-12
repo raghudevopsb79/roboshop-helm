@@ -19,7 +19,7 @@ resources:
     memory: 3500Mi
 
 customCommand:
-  enabled: true
+  enabled: false
   command: ["java", "-Xms1750m", "-Xmx1750m", "-jar", "/app/shipping.jar"]
 
 
