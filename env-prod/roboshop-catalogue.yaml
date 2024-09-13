@@ -1,5 +1,5 @@
 name: catalogue
-replicas: 1
+replicas: 2
 labels:
   appName: catalogue
 containerPort: 8080

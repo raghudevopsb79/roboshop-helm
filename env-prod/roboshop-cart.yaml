@@ -1,5 +1,5 @@
 name: cart
-replicas: 1
+replicas: 2
 labels:
   appName: cart
 containerPort: 8080

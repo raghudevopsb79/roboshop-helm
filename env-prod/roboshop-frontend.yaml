@@ -1,5 +1,5 @@
 name: frontend
-replicas: 1
+replicas: 2
 labels:
   appName: frontend
 containerPort: 80

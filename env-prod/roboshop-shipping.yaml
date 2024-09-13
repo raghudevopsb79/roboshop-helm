@@ -1,5 +1,5 @@
 name: shipping
-replicas: 1
+replicas: 2
 labels:
   appName: shipping
 containerPort: 8080

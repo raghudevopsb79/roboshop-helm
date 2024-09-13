@@ -1,5 +1,5 @@
 name: payment
-replicas: 1
+replicas: 2
 labels:
   appName: payment
 containerPort: 8080
