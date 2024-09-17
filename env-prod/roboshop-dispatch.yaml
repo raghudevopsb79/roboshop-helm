@@ -1,0 +1,21 @@
+name: dispatch
+replicas: 1
+labels:
+  appName: dispatch
+namespace: app
+env: prod
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 250Mi
+  limits:
+    cpu: 400m
+    memory: 500Mi
+
+healthCheck:
+  enabled: false
+
+
+
+
