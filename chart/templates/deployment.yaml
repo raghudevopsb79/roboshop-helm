@@ -38,10 +38,11 @@ spec:
           envFrom:
           - secretRef:
               name: {{ .Values.name }}
-          ports:
-          - containerPort: {{ .Values.containerPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.healthCheck.enabled }}
+          ports:
+          - containerPort: {{ .Values.containerPort }}
           livenessProbe:
             httpGet:
               path: /health
@@ -54,5 +55,6 @@ spec:
               port: {{ .Values.containerPort }}
             initialDelaySeconds: 5
             periodSeconds: 5
+          {{- end }}
 
 
